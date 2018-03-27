@@ -10,8 +10,10 @@ We use spatial and temporal stream cnn under the Keras framework to reproduce pu
   ### Spatial input data -> rgb frames
   * First, download the dataset from UCF into the `data` folder:
   `cd data && wget http://crcv.ucf.edu/data/UCF101/UCF101.rar`
+  
   Then extract it with `unrar e UCF101.rar`. in disk, which costs about 5.9G.
-  we use split #1 for all of our experiments.
+  
+  We use split #1 for all of our experiments.
   ### Motion input data -> stacked optical flows
   * Download the preprocessed tvl1 optical flow dataset directly from https://github.com/feichtenhofer/twostreamfusion. 
   ```
