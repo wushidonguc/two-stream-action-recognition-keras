@@ -26,21 +26,21 @@ We use spatial and temporal stream cnn under the Keras framework to reproduce pu
 
 ## Model
   ### Spatial-stream cnn
-  * We classify each video by looking at a single frame.
+  *  We classify each video by looking at a single frame.
   ### Temporal-stream cnn
-  * We follow the reference paper and use 10 x-channels and 10 y-channels for each optical flow stack, resulting in a input shape of (224, 224, 20).
+  *  We follow the reference paper and use 10 x-channels and 10 y-channels for each optical flow stack, resulting in a input shape of (224, 224, 20).
   
 ## Training
   ### Spatial-stream cnn
-  * We use ImageNet pre-trained models and transfer learning to retrain Inception on our data. We first fine-tune the top dense layers for 10 epochs and then retrain the top two inception blocks.
+  *  We use ImageNet pre-trained models and transfer learning to retrain Inception on our data. We first fine-tune the top dense layers for 10 epochs and then retrain the top two inception blocks.
   ### Temporal-stream cnn
-  * We train the temporal-stream cnn from scratch. In every mini-batch, we randomly select 128 (batch size) videos from 9537 training videos and futher randomly select 1 optical flow stack in each video. 
+  *  We train the temporal-stream cnn from scratch. In every mini-batch, we randomly select 128 (batch size) videos from 9537 training videos and futher randomly select 1 optical flow stack in each video. 
   ### Data augmentation
-  * Both streams apply the same data augmentation technique such as corner cropping and random horizontal flipping. Temporally, we pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
+  *  Both streams apply the same data augmentation technique such as corner cropping and random horizontal flipping. Temporally, we pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
 
 ## Testing
-  * We fused the two streams by averaging the softmax scores.
-  * For every 3783 testing videos, we uniformly sample a number of frames in each video and the video level prediction is the voting result of all frame level predictions. We pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
+  *  We fused the two streams by averaging the softmax scores.
+  *  For every 3783 testing videos, we uniformly sample a number of frames in each video and the video level prediction is the voting result of all frame level predictions. We pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
 
 ## Results
 |Network     |Simonyan et al  |Ours  |
