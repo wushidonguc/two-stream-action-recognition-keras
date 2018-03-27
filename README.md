@@ -34,7 +34,7 @@ We use spatial and temporal stream cnn under the Keras framework to reproduce pu
 
 ## Testing
 *  We fused the two streams by averaging the softmax scores.
-*  For every 3783 testing videos, we uniformly sample a number of frames in each video and the video level prediction is the voting result of all frame level predictions. We pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
+*  We uniformly sample a number of frames in each video and the video level prediction is the voting result of all frame level predictions. We pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
 
 ## Results
 |Network     |Simonyan et al  |Ours  |
