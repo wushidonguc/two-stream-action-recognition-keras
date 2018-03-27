@@ -28,7 +28,7 @@ We use spatial and temporal stream cnn under the Keras framework to reproduce pu
   ### Spatial-stream cnn
   *  We classify each video by looking at a single frame. We use ImageNet pre-trained models and transfer learning to retrain Inception on our data. We first fine-tune the top dense layers for 10 epochs and then retrain the top two inception blocks.
   ### Temporal-stream cnn
-  *  We train the temporal-stream cnn from scratch. In every mini-batch, we randomly select 128 (batch size) videos from 9537 training videos and futher randomly select 1 optical flow stack in each video. We follow the reference paper and use 10 x-channels and 10 y-channels for each optical flow stack, resulting in a input shape of (224, 224, 20).
+  *  We train the temporal-stream cnn from scratch. In every mini-batch, we randomly select 128 (batch size) videos from 9537 training videos and futher randomly select 1 optical flow stack in each video. We follow the reference paper and use 10 x-channels and 10 y-channels for each optical flow stack, resulting in a input shape of (224, 224, 20). Multiple workers are utilized in the data generator for faster training.
   ### Data augmentation
   *  Both streams apply the same data augmentation technique such as corner cropping and random horizontal flipping. Temporally, we pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
 
@@ -42,8 +42,3 @@ We use spatial and temporal stream cnn under the Keras framework to reproduce pu
 |Spatial     |72.7%           |73.1% |
 |Temporal    |81.0%           |78.8% |
 |Fusion      |85.9%           |82.0% |
-
-## TODOs
-- [x] Support multiple workers in the data generator for faster training
-- [ ] Initialize temporal-stream cnn by ImageNet pre-trained weights
-- [ ] Add a demo script
