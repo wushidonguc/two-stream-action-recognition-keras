@@ -1,5 +1,5 @@
 # Two-stream-action-recognition-keras
-We use spatial and temporal stream cnn under the Keras framework to reproduce published results on UCF-101 action recognition dataset.
+We use spatial and temporal stream cnn under the Keras framework to reproduce published results on UCF-101 action recognition dataset. (https://doi.org/10.5281/zenodo.1402091)
 
 ## References
 *  [[1] Two-stream convolutional networks for action recognition in videos](http://papers.nips.cc/paper/5353-two-stream-convolutional)
