@@ -60,7 +60,7 @@ Download the preprocessed tvl1 optical flow dataset directly from https://github
 *  We uniformly sample a number of frames in each video and the video level prediction is the voting result of all frame level predictions. We pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
 
 ## Results
-|Network     |Simonyan et al  |Ours  |
+|Network     |Simonyan et al [1](http://papers.nips.cc/paper/5353-two-stream-convolutional) |Ours  |
 -------------|:--------------:|:----:|
 |Spatial     |72.7%           |73.1% |
 |Temporal    |81.0%           |78.8% |
