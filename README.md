@@ -13,14 +13,14 @@ We use spatial and temporal stream cnn under the Keras framework to reproduce pu
 
 
 ## Data
-  ### Spatial input data -> rgb frames
+### Spatial input data -> rgb frames
   First, download the dataset from UCF into the `data` folder:
   `cd data && wget http://crcv.ucf.edu/data/UCF101/UCF101.rar`
   
   Then extract it with `unrar e UCF101.rar`. in disk, which costs about 5.9G.
   
   We use split #1 for all of our experiments.
-  ### Motion input data -> stacked optical flows
+### Motion input data -> stacked optical flows
   Download the preprocessed tvl1 optical flow dataset directly from https://github.com/feichtenhofer/twostreamfusion. 
   ```
   wget http://ftp.tugraz.at/pub/feichtenhofer/tsfusion/data/ucf101_tvl1_flow.zip.001
@@ -31,12 +31,12 @@ We use spatial and temporal stream cnn under the Keras framework to reproduce pu
   ```
 
 ## Training
-  ### Spatial-stream cnn
+### Spatial-stream cnn
   *  We classify each video by looking at a single frame. We use ImageNet pre-trained models and transfer learning to retrain Inception on our data. We first fine-tune the top dense layers for 10 epochs and then retrain the top two inception blocks.
-  ### Temporal-stream cnn
+### Temporal-stream cnn
   *  We train the temporal-stream cnn from scratch. In every mini-batch, we randomly select 128 (batch size) videos from 9537 training videos and futher randomly select 1 optical flow stack in each video. We follow the reference paper and use 10 x-channels and 10 y-channels for each optical flow stack, resulting in a input shape of (224, 224, 20). 
   *  Multiple workers are utilized in the data generator for faster training.
-  ### Data augmentation
+### Data augmentation
   *  Both streams apply the same data augmentation technique such as corner cropping and random horizontal flipping. Temporally, we pick the starting frame among those early enough to guarantee a desired number of frames. For shorter videos, we looped the video as many times as necessary to satisfy each model’s input interface.
 
 ## Testing
