@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://zenodo.org/badge/127003611.svg)](https://zenodo.org/badge/latestdoi/127003611) 
 
-We use spatial and temporal stream cnn under the Keras framework to reproduce published results on UCF-101 action recognition dataset. 
+We use spatial and temporal stream cnn under the Keras framework to reproduce published results on UCF-101 action recognition dataset. This is a project from a research internship at the Machine Intelligence team, IBM Research AI, Almaden Research Center, by Wushi Dong (dongws@uchicago.edu).
 
 
 ## References
